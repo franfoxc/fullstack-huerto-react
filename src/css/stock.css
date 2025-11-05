@@ -1,0 +1,131 @@
+/* ==== STOCK ==== */
+.stock-seccion {
+  margin-left: 240px;
+  padding: 40px;
+  background: linear-gradient(to bottom right, #f1f8e9, #ffffff);
+  min-height: 100vh;
+  text-align: center;
+}
+
+.stock-seccion h1 {
+  color: #2e7d32;
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+/* Mensaje temporal */
+.mensaje-agregado {
+  background-color: #c8e6c9;
+  color: #1b5e20;
+  border: 1px solid #81c784;
+  border-radius: 8px;
+  padding: 12px 20px;
+  margin: 20px auto;
+  width: fit-content;
+  font-weight: bold;
+  font-size: 1em;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  animation: fadeInOut 3s ease forwards;
+}
+
+/* Categorías */
+.categorias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+.categoria-card {
+  background: white;
+  padding: 30px 20px;
+  border-radius: 12px;
+  width: 220px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.categoria-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  background-color: #e8f5e9;
+}
+
+/* Productos */
+.stock-lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.producto-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 220px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.producto-img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* Botones */
+.btn-agregar {
+  background-color: #43a047;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-agregar:hover {
+  background-color: #388e3c;
+}
+
+.btn-volver {
+  background-color: #81c784;
+  color: #1b5e20;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-volver:hover {
+  background-color: #66bb6a;
+}
+
+/* Animación */
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-10px); }
+  10%, 90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+.btn-agregar.agotado {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.btn-volver.activo {
+  background-color: #43a047;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}

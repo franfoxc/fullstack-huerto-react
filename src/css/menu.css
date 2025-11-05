@@ -1,0 +1,128 @@
+/* ==== MENÚ PRINCIPAL ==== */
+.menu-principal {
+  margin-left: 240px;
+  padding: 50px 20px;
+  background: linear-gradient(to bottom right, #dcedc8, #ffffff);
+  min-height: 100vh;
+  text-align: center;
+}
+
+/* Texto de bienvenida */
+.menu-texto h1 {
+  color: #2e7d32;
+  font-size: 2.5em;
+  font-weight: 700;
+  margin-bottom: 15px;
+  animation: fadeInDown 1s ease;
+}
+
+.menu-texto p {
+  color: #424242;
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin: 5px 0;
+}
+
+/* Carrusel */
+.menu-carrusel {
+  margin: 40px auto;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 1.5s ease;
+}
+
+.carousel {
+  width: 90%;
+  max-width: 800px;
+  margin: 30px auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.carousel img {
+  height: 300px;
+  object-fit: cover;
+}
+
+/* Sección informativa */
+.menu-info {
+  background-color: #ffffff;
+  width: 80%;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  animation: fadeInUp 1s ease;
+}
+
+.menu-info h2 {
+  color: #388e3c;
+  font-size: 1.6em;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.menu-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-info li {
+  font-size: 1.1em;
+  color: #333;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  position: relative;
+}
+
+.menu-info li::before {
+  content: "🌿";
+  position: absolute;
+  left: -25px;
+  color: #4caf50;
+}
+
+.carousel {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  height: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.indicadores {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.indicador {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.indicador.activo {
+  background-color: #4caf50;
+}
