@@ -1,40 +1,105 @@
 import React from "react";
 import "../css/carrito.css";
 
-function Carrito({ carrito, setCarrito, eliminarDelCarrito }) {
+function Carrito({ carrito, setCarrito, eliminarDelCarrito, setPaginaActual }) {
+  // 🔹 Aumentar cantidad
   const aumentar = (id) => {
-    setCarrito(carrito.map((i) => (i.id === id ? { ...i, cantidad: i.cantidad + 1 } : i)));
+    setCarrito(
+      carrito.map((item) =>
+        item.id === id ? { ...item, cantidad: item.cantidad + 1 } : item
+      )
+    );
   };
+
+  // 🔹 Disminuir cantidad (sin bajar de 1)
   const disminuir = (id) => {
     setCarrito(
       carrito
-        .map((i) =>
-          i.id === id && i.cantidad > 1 ? { ...i, cantidad: i.cantidad - 1 } : i
+        .map((item) =>
+          item.id === id
+            ? { ...item, cantidad: item.cantidad > 1 ? item.cantidad - 1 : 1 }
+            : item
         )
-        .filter((i) => i.cantidad > 0)
+        .filter((item) => item.cantidad > 0)
     );
   };
-  const total = carrito.reduce((acc, i) => acc + i.precio * i.cantidad, 0);
+
+  // 🔹 Eliminar producto del carrito
+  const eliminar = (id) => {
+    const actualizado = carrito.filter((item) => item.id !== id);
+    setCarrito(actualizado);
+  };
+
+  // 🔹 Vaciar carrito completamente
+  const vaciarCarrito = () => {
+    setCarrito([]);
+  };
+
+  // 🔹 Calcular subtotal y total general
+  const calcularSubtotal = (item) => item.precio * item.cantidad;
+  const total = carrito.reduce((acc, item) => acc + calcularSubtotal(item), 0);
 
   return (
     <section className="carrito-seccion">
       <h1>🛒 Tu Carrito</h1>
+
       {carrito.length === 0 ? (
-        <p data-testid="carrito-vacio">Tu carrito está vacío 🌱</p>
+        <p className="carrito-vacio">Tu carrito está vacío 🌱</p>
       ) : (
-        <div>
+        <div className="carrito-lista">
           {carrito.map((item) => (
-            <div key={item.id} data-testid={`item-${item.id}`}>
-              <p>{item.nombre}</p>
-              <button data-testid={`btn-mas-${item.id}`} onClick={() => aumentar(item.id)}>+</button>
-              <button data-testid={`btn-menos-${item.id}`} onClick={() => disminuir(item.id)}>-</button>
-              <button data-testid={`btn-borrar-${item.id}`} onClick={() => eliminarDelCarrito(item.id)}>🗑️</button>
+            <div key={item.id} className="carrito-item">
+              <div className="carrito-detalles">
+                <img
+                  src={item.imagen}
+                  alt={item.nombre}
+                  className="carrito-imagen"
+                />
+                <div>
+                  <h3>{item.nombre}</h3>
+                  <p>💰 Precio unitario: ${item.precio}</p>
+                  <p>📦 Cantidad: {item.cantidad}</p>
+                  <p>🧾 Subtotal: ${calcularSubtotal(item)}</p>
+                </div>
+              </div>
+
+              <div className="carrito-botones">
+                <button onClick={() => aumentar(item.id)}>+</button>
+                <button onClick={() => disminuir(item.id)}>-</button>
+                <button onClick={() => eliminar(item.id)}>🗑️</button>
+              </div>
             </div>
           ))}
-          <h2 data-testid="total">Total: ${total}</h2>
+
+          {/* 🔹 Resumen final */}
+          <div className="carrito-resumen">
+            <h2>Resumen del pedido 🧾</h2>
+            {carrito.map((item) => (
+              <p key={item.id}>
+                {item.nombre} ({item.cantidad} x ${item.precio}) = ${calcularSubtotal(item)}
+              </p>
+            ))}
+            <hr />
+            <h3>Total general: ${total}</h3>
+
+            <div className="carrito-acciones">
+              <button className="btn-vaciar" onClick={vaciarCarrito}>
+                Vaciar carrito
+              </button>
+
+              {/* 🧾 NUEVO BOTÓN PARA CONFIRMAR PEDIDO */}
+              <button
+                className="btn-confirmar"
+                onClick={() => setPaginaActual("confirmarPedido")}
+              >
+                🧾 Confirmar Pedido
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </section>
   );
 }
+
 export default Carrito;

@@ -1,0 +1,80 @@
+.boleta-seccion {
+  margin-left: 240px;
+  padding: 40px;
+  background: linear-gradient(to bottom right, #f1f8e9, #ffffff);
+  min-height: 100vh;
+  text-align: center;
+}
+
+.boleta-container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  width: 80%;
+  margin: 0 auto;
+  font-size: 1em;
+  animation: fadeIn 0.5s ease;
+}
+
+.boleta-container h2 {
+  color: #2e7d32;
+  margin-bottom: 5px;
+}
+
+.boleta-info {
+  margin-bottom: 20px;
+  font-size: 1em;
+  color: #333;
+}
+
+.boleta-cliente {
+  background-color: #f9fbe7;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.boleta-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.boleta-tabla th,
+.boleta-tabla td {
+  border: 1px solid #c8e6c9;
+  padding: 8px;
+}
+
+.boleta-tabla th {
+  background-color: #a5d6a7;
+  color: #1b5e20;
+}
+
+.boleta-total {
+  color: #1b5e20;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.btn-descargar {
+  margin-top: 25px;
+  background-color: #43a047;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-descargar:hover {
+  background-color: #2e7d32;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

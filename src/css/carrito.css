@@ -1,51 +1,37 @@
-/* ==== CARRITO ==== */
 .carrito-seccion {
   margin-left: 240px;
   padding: 40px;
   background: linear-gradient(to bottom right, #f1f8e9, #ffffff);
   min-height: 100vh;
-  text-align: center;
-}
-
-.carrito-seccion h1 {
-  color: #2e7d32;
-  font-size: 2em;
-  margin-bottom: 20px;
-}
-
-.carrito-vacio {
-  color: #757575;
-  font-size: 1.2em;
-  margin-top: 50px;
 }
 
 .carrito-lista {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 20px;
 }
 
 .carrito-item {
-  background: white;
-  width: 80%;
-  max-width: 600px;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.carrito-item:hover {
-  transform: scale(1.02);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .carrito-detalles {
-  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.carrito-imagen {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .carrito-botones button {
@@ -63,16 +49,24 @@
   background-color: #2e7d32;
 }
 
-.carrito-botones button:nth-child(3) {
-  background-color: #e53935;
-}
-
-.carrito-botones button:nth-child(3):hover {
-  background-color: #c62828;
-}
-
-.carrito-total {
+.carrito-resumen {
+  background-color: #e8f5e9;
+  padding: 20px;
+  border-radius: 12px;
   margin-top: 30px;
-  font-size: 1.5em;
-  color: #1b5e20;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-vaciar {
+  background-color: #e53935;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-vaciar:hover {
+  background-color: #c62828;
 }

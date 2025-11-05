@@ -10,6 +10,10 @@ function Sidebar({ setPaginaActual, paginaActual }) {
     { id: "informacion", nombre: "Cuidados" },
     { id: "noticias", nombre: "Noticias" },
     { id: "registro", nombre: "Registro" },
+
+    // 🧾 NUEVAS SECCIONES
+    { id: "confirmarPedido", nombre: "Confirmar Pedido" },
+    { id: "pedidos", nombre: "Mis Pedidos" },
   ];
 
   return (
